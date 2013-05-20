@@ -1,0 +1,47 @@
+%h2 Current User
+
+%table.simple
+  %tr
+    %th Attribute
+    %th Value
+  %tr
+    %td devise_controller?
+    %td= devise_controller?
+  - if current_user_exists?
+    %tr
+      %td current_user.id
+      %td= current_user.id
+    %tr
+      %td current_user.email
+      %td= current_user.email
+    %tr
+      %td current_user.unconfirmed_email
+      %td= current_user.unconfirmed_email
+    %tr
+      %td current_user.confirmation_token
+      %td= current_user.confirmation_token
+    %tr
+      %td current_user.blank_password?
+      %td= current_user.blank_password?
+    %tr 
+      %td user_signed_in?
+      %td= user_signed_in?
+    %tr 
+      %td current_user.confirmed?
+      %td= current_user.confirmed?
+    %tr
+      %td user_session.inspect
+      %td= user_session.inspect
+    %tr
+      %td current_user.inspect
+      %td= current_user.inspect
+  - else 
+    %tr
+      %td current_user
+      %td nil
+
+%br
+- if user_signed_in? 
+  %p= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn')
+- else 
+  %p= link_to('Login', new_user_session_path, class: 'btn')

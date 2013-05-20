@@ -1,0 +1,12 @@
+%h1 Protected!
+
+%p This page will not be shown until the user has submitted an email address.
+
+%p Once an email is submitted, the user is auto-signed in, but they're still not confirmed until they click the link that was emailed to them.
+
+%p This page is an example of a signed in, but still unconfirmed user being allowed to view a protected page.  "Protected Until Confirmed" requires the user to confirm email address before they can visit the page.
+
+%a{href: root_path, class: 'btn'} Home
+
+%a{href: protected_until_confirmed_path, class: 'btn'} Protected Until Confirmed
+

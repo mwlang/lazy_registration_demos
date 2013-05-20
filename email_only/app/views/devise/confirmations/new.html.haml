@@ -1,0 +1,9 @@
+%h2 Resend confirmation instructions
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email, :autofocus => true
+  %div{style: "margin-top: 25px"}= f.submit "Resend confirmation instructions", class: "btn btn-primary btn-large"
+= render "devise/shared/links"

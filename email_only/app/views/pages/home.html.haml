@@ -1,0 +1,21 @@
+%h1 Welcome!
+
+%p 
+  %i Demonstration of Devise and Lazy Registration on Rails 4
+
+%p 
+  This particular demo reduces the requirement of signing up to simply asking for an email address.  
+  While not technically meeting the Lazy Registration UX pattern, it does reduce barrier to entry to the site visitor providing a valid email address.
+  So, at the outset, before a user can visit a protected page, he must supply an email address, after which he's auto-signed in and given 3 days to 
+  confirm email address (see config/initializers/devise.rb for configuration changes).
+  
+%p 
+  This page is not protected in any way -- all visitors to the page may view the page's contents. We do not attempt to authenticate the user,
+ so the current_user is nil. Whether to authenticate or not is controlled within the controller with the following:
+ 
+%pre
+  before_filter :authenticate_user!, except: [:home]
+  
+%a{href: protected_path, class: 'btn'} Go to Protected page &raquo;
+
+  
