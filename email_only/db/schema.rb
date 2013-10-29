@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130519155637) do
+ActiveRecord::Schema.define(version: 20131029144133) do
 
   create_table "pages", force: true do |t|
     t.datetime "created_at"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20130519155637) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
